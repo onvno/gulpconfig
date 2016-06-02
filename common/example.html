@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+<title>通用组件</title>
+<link href="css/common.css" rel="stylesheet" />
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/common.js"></script>
+<style>
+	body{margin:0 30px 50px;}
+	h1{margin:50px 0 15px;}
+</style>
+</head>
+<body>
+<!-- 顶部logo及导航 -->
+<div class="top">
+	<div class="container">
+		<div class="logo">
+			<img src="images/logoBg.png" class="logoBg" />
+			<img src="../common/images/logo.png" class="logoImg" />
+			<p class="moduleTitle">舆情<i></i></p>
+		</div>
+		<div class="topUser">
+			<span class="userName">欢迎 oliva</span> <img src="../common/images/userPhoto.jpg" class="userPhoto" />
+		</div>
+		<div class="nav">
+			<span class="navLine"></span>
+			<ul>
+				<li class="current"><a href="#">舆情管理看板</a></li>
+				<li><a href="#">舆情详情</a></li>
+				<li><a href="#">舆情分析</a></li>
+				<li><a href="#">TOPN改进项目</a></li>           
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+<h1>1. tab选项卡</h1>
+<div class="tabMenu clearfix">
+	<p class="l mr30">test content</p>
+	<ul class="l">
+		<li class="current">tab1</li>
+		<li>tab2</li>
+		<li>tab3</li>
+	</ul>
+</div>
+<div class="tabContent">
+	<div class="tabContentBox current">
+		选项卡内容一
+	</div>
+	
+	<div class="tabContentBox">
+		选项卡内容二
+	</div>
+	
+	<div class="tabContentBox">
+		选项卡内容三
+	</div>
+</div>
+<pre>
+
+vocCommon.tabMenu(tabDom, currentClass, contentDom)
+JS引用示例：vocCommon.tabMenu(".tabMenu", "current", ".tabContent");</pre>
+<script>
+	vocCommon.tabMenu(".tabMenu", "current", ".tabContent");
+</script>
+
+
+
+<h1>2. 弹出框</h1>
+<a href="javascript:;" id="showPopup" style="text-decoration:underline;">点击显示弹出框</a>
+<pre>
+
+vocCommon.popup = function(clickDom, popContent);
+JS引用示例：vocCommon.popup("#showPopup", "test content");</pre>
+<script>
+	vocCommon.popup("#showPopup", "test content");
+</script>
+
+
+
+<h1>3. 右侧居中快捷按纽组</h1>
+<div class="container">
+<!-- 实际运用可不要container嵌套 -->
+	<div class="fixedTools">
+		<a href="#">btn1</a>
+		<a href="#">btn2</a>
+		<a href="#">btn3</a>
+	</div>
+</div>
+<pre>
+
+vocCommon.setFixedToolsTop(fixedToolsDom);
+JS引用示例：vocCommon.setFixedToolsTop(".fixedTools");</pre>
+<script>
+	vocCommon.setFixedToolsTop(".fixedTools");
+</script>
+
+
+
+<h1>4. 容器渲染图表</h1>
+<div id="sheet1" style="width: 600px;height:400px;">此容器用来渲染图表</div>
+<pre>
+vocCommon.loadSheet(sheetDom, dataOption);
+JS引用示例：vocCommon.loadSheet("sheet1", option);</pre>
+<script type="text/javascript">
+	var option = {
+		title: {
+			text: 'ECharts 入门示例'
+		},
+		tooltip: {},
+		legend: {
+			data:['销量']
+		},
+		xAxis: {
+			data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+		},
+		yAxis: {},
+		series: [{
+			name: '销量',
+			type: 'bar',
+			data: [5, 20, 36, 10, 10, 20]
+		}]
+	};
+	vocCommon.loadSheet("sheet1", option);
+</script>
+
+
+
+<h1>5. 下拉菜单</h1>
+<div class="floatMenu">
+	<div class="floatMenuIcon">
+		<span class="line line1"></span>
+		<span class="line line2"></span>
+		<span class="line line3"></span>
+	</div>
+	<ul class="floatMenuList">
+		<li><a href="#">导出此报表</a></li>
+		<li><a href="#">取消关注此报表</a></li>
+	</ul>
+</div>
+<pre>
+
+vocCommon.dropDownMenu(clickDom, className, dropDownMenu);
+JS引用示例：vocCommon.dropDownMenu(".floatMenuIcon", "show", ".floatMenuList");</pre>
+<script>
+	vocCommon.dropDownMenu(".floatMenuIcon", "show", ".floatMenuList");
+</script>
+
+
+
+<h1>6. 月份选择css组件</h1>
+<ul class="moduleSelect">
+	<li class="current">本月</li>
+	<li>上月</li>
+	<li class="last">今年</li>
+</ul>
+
+
+
+<h1>7. 信息来源css组件</h1>
+<div class="source clearfix">
+	<span class="l">信息来源</span>
+	<span class="sourceBtn">
+		<span class="l">全部</span>
+		<span class="controlBtn"><i class="up&quot;&quot;"></i><i class="down"></i></span>
+	</span>
+	<ul class="sourceList">
+		<li>全部</li>
+		<li>来源一</li>
+	</ul>
+</div>
+
+
+
+<h1>8. 页面主体tab</h1>
+<div class="container">
+	<p class="pageTab">
+		<a href="#" class="current">整体</a>
+		<a href="#">红黑榜</a>
+	</p>
+</div>
+
+
+
+<h1>9. 页面二级标题CSS组件</h1>
+<div  class="pageH2 clearfix">
+	<h2>舆情整体概览</h2>
+	<div class="floatMenu">
+		<div class="floatMenuIcon">
+			<span class="line line1"></span>
+			<span class="line line2"></span>
+			<span class="line line3"></span>
+		</div>
+		<ul class="floatMenuList">
+			<li><a href="#">导出此报表</a></li>
+			<li><a href="#">取消关注此报表</a></li>
+		</ul>
+	</div>
+</div>
+
+
+
+<h1>10. 页面三级标题CSS组件</h1>
+<div class="pageH3 clearfix">
+	<h3 class="l"><i></i>情感分布</h3>
+	<div class="r">
+		<ul class="moduleSelect l">
+			<li class="current">本月</li>
+			<li>上月</li>
+			<li class="last">今年</li>
+		</ul>
+		<div class="source l">
+			<span class="l">信息来源</span>
+			<span class="sourceBtn">
+				<span class="l">全部</span>
+				<span class="controlBtn"><i class=up""></i><i class="down"></i></span>
+			</span>
+			<ul class="sourceList">
+				<li>全部</li>
+				<li>来源一</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+
+</body>
+</html>

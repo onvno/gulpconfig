@@ -1,0 +1,30 @@
+$opacity : 0.5; // 变量
+
+// 引入
+@mixin border($width:1px, $style:solid, $color:#fff){
+	border-bottom: $width $style $color;
+}
+h2{
+	@include border(2px,dotted,red);
+}
+
+
+
+.error {
+  border: 1px #f00;
+  background-color: #fdd;
+}
+.seriousError {
+  @extend .error;
+  border-width: 3px;
+}
+a:hover{
+	color:#fff;
+}
+.hoverlink {
+  @extend a:hover; // 暂时理解为平行
+  @extend .error
+}
+
+
+
